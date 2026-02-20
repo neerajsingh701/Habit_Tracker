@@ -30,9 +30,9 @@ app.listen(PORT, () => {
     console.log((`Server Connected to port: ${PORT}`));
 })
 
-app.get("/"), (req, res) => {
-    res.send("Backend is running properlly")
-}
+app.get("/", (req, res) => {
+    res.send("Backend is running 🚀");
+});
 
 
 // aws password
