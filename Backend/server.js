@@ -11,9 +11,12 @@ const PORT = process.env.PORT || 4000
 
 app.use(express.json())
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: [
+        "http://localhost:5173",
+        "https://habit-tracker-eosin-chi.vercel.app"
+    ],
     credentials: true
-}))
+}));
 
 connectDB()
 
