@@ -15,7 +15,7 @@ const HabitContextProvider = ({ children }) => {
     const [token, setToken] = useState(cookie.get("token") || null)
     const [habitData, setHabitData] = useState([]);
 
-    const backendURL = 'http://localhost:3000'
+    const backendURL = import.meta.env.VITE_API_URL;
 
     const getAuthToken = () => cookie.get("token")
 
