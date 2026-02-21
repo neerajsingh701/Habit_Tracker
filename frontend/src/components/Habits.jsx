@@ -41,6 +41,12 @@ const Habits = () => {
 
 
 
+
+
+
+
+
+
   const handleCompleteClick = async (id) => {
     try {
 
@@ -69,6 +75,12 @@ const Habits = () => {
       setShowModel(false)
       setIsEdit(false)
       setEditingId(null)
+      setNewHabit({
+        name: "",
+        description: "",
+        frequency: [],
+        logs: []
+      })
 
 
     } catch (error) {
@@ -88,6 +100,12 @@ const Habits = () => {
       ])
 
       // model close 
+      setNewHabit({
+        name: "",
+        description: "",
+        frequency: [],
+        logs: []
+      })
       setShowModel(false)
 
 
@@ -170,10 +188,20 @@ const Habits = () => {
                 </select>
               </div>
               <div className="flex justify-end space-x-2">
-                <button type='button' onClick={() => setShowModel(false)} className='w-20 border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white py-2 px-4 rounded-lg transition duration-300'>
+                <button type='button' onClick={() => {
+                  setEditingId(null)
+                  setNewHabit({
+                    name: "",
+                    description: "",
+                    frequency: [],
+                    logs: []
+                  })
+                  setShowModel(false)
+                }} className='w-20 border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white py-2 px-4 rounded-lg transition duration-300'>
                   Cancel
                 </button>
-                <button type='submit' className='w-20 border border-[#dc2626] text-[#dc2626] hover:bg-[#dc2626] hover:text-white py-2 px-4 rounded-lg  transition duration-300'>
+                <button type='submit'
+                  className='w-20 border border-[#dc2626] text-[#dc2626] hover:bg-[#dc2626] hover:text-white py-2 px-4 rounded-lg  transition duration-300'>
                   {isEdit ? "Update" : "Add"}
                 </button>
 
